@@ -2,20 +2,16 @@
 version: 2
 
 models:
-  - name: my_first_dbt_model
-    description: "A starter dbt model"
+  - name: client_sum_revenue
+    description: "sums up revenue per client"
     columns:
-      - name: id
+      - name: client_id
         description: "The primary key for this table"
         data_tests:
           - unique
           - not_null
-
-  - name: my_second_dbt_model
-    description: "A starter dbt model"
-    columns:
-      - name: id
-        description: "The primary key for this table"
-        data_tests:
-          - unique
+      - name: revenue_per_client
+        description: "sums up the monthly premium per client id"
+        data_test:
+          - <= 0
           - not_null

@@ -7,7 +7,11 @@ version: '1.0.0'
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'dbt_showroom'
-
+seeds:
+  dbt_showroom: 
+    +delimiter: "," # default delimiter for seeds in jaffle_shop project will be "|"
+    contract:
+      +delimiter: ";" # delimiter for seed_a will be ","
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
@@ -32,5 +36,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_showroom:
     # Config indicated by + and applies to all files under models/example/
+    dimensions:
+      +schema: dimensions
+      +staging: staging
     example:
       +materialized: view

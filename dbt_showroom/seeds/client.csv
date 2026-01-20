@@ -1,11 +1,11 @@
-client_id,first_name,last_name,date_of_birth,email,phone,address,zip_code,city,insurance_type,policy_number,monthly_premium
-1001,Hans,Müller,1985-03-12,hans.mueller@example.de,+49 151 12345678,Hauptstraße 1,10115,Berlin,Privathaftpflicht,PH-987234,5.50
-1001,Hans,Müller,1985-03-12,hans.mueller@example.de,+49 151 12345678,Hauptstraße 1,10115,Berlin,Hausratversicherung,HR-123987,10.50
-1002,Julia,Schmidt,1992-07-24,j.schmidt@web.de,+49 170 98765432,Goetheweg 12,80331,München,Hausratversicherung,HR-554211,12.90
-1003,Michael,Schneider,1978-11-05,m.schneider@t-online.de,+49 160 11223344,Schillerplatz 4,20095,Hamburg,KFZ-Versicherung,KFZ-332198,45.20
-1003,Michael,Schneider,1978-11-05,m.schneider@t-online.de,+49 160 11223344,Schillerplatz 4,20095,Hamburg,Rechtsschutz,RS-445566,25.90
-1004,Sabine,Fischer,1965-01-30,sabine.fischer@gmx.net,+49 172 44556677,Bahnhofstraße 88,50667,Köln,Rechtsschutz,RS-110022,21.50
-1005,Thomas,Weber,1990-09-15,thomas.weber@example.com,+49 152 99887766,Marktplatz 7,60311,Frankfurt am Main,Unfallversicherung,UV-776655,18.75
-1006,Claudia,Meyer,1982-05-20,c.meyer@posteo.de,+49 171 22334455,Lindenstraße 23,01067,Dresden,Wohngebäudeversicherung,WG-443322,35.00
-1007,Andreas,Wagner,1975-12-10,a.wagner@example.de,+49 162 55667788,Schulstraße 5,70173,Stuttgart,Private Krankenversicherung,PKV-998811,450.00
-1008,Stefanie,Becker,1988-04-02,stefanie.becker@web.de,+49 157 12312312,Ringstraße 10,40213,Düsseldorf,Berufsunfähigkeit,BU-221144,65.40
+client_id,first_name,last_name,date_of_birth,email,phone,address,zip_code,city,insurance_type,policy_number
+1001,Hans,Müller,1985-03-12,hans.mueller@example.de,+49 151 12345678,Hauptstraße 1,10115,Berlin,Privathaftpflicht,PH-987234
+1001,Hans,Müller,1985-03-12,hans.mueller@example.de,+49 151 12345678,Hauptstraße 1,10115,Berlin,Hausratversicherung,HR-123987
+1002,Julia,Schmidt,1992-07-24,j.schmidt@web.de,+49 170 98765432,Goetheweg 12,80331,München,Hausratversicherung,HR-554211
+1003,Michael,Schneider,1978-11-05,m.schneider@t-online.de,+49 160 11223344,Schillerplatz 4,20095,Hamburg,KFZ-Versicherung,KFZ-332198
+1003,Michael,Schneider,1978-11-05,m.schneider@t-online.de,+49 160 11223344,Schillerplatz 4,20095,Hamburg,Rechtsschutz,RS-445566
+1004,Sabine,Fischer,1965-01-30,sabine.fischer@gmx.net,+49 172 44556677,Bahnhofstraße 88,50667,Köln,Rechtsschutz,RS-110022
+1005,Thomas,Weber,1990-09-15,thomas.weber@example.com,+49 152 99887766,Marktplatz 7,60311,Frankfurt am Main,Unfallversicherung,UV-776655
+1006,Claudia,Meyer,1982-05-20,c.meyer@posteo.de,+49 171 22334455,Lindenstraße 23,01067,Dresden,Wohngebäudeversicherung,WG-443322
+1007,Andreas,Wagner,1975-12-10,a.wagner@example.de,+49 162 55667788,Schulstraße 5,70173,Stuttgart,Private Krankenversicherung,PKV-998811
+1008,Stefanie,Becker,1988-04-02,stefanie.becker@web.de,+49 157 12312312,Ringstraße 10,40213,Düsseldorf,Berufsunfähigkeit,BU-221144
