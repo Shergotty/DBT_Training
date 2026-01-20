@@ -1,11 +1,11 @@
-policy_number;insurance_type;monthly_premium;start_date;payment_plan;acquisition_cost;insurance_sum
-PH-987234;Privathaftpflicht;5.50;15.01.2023;yearly;50.00;10000000
-HR-123987;Hausratversicherung;10.50;01.02.2023;monthly;25.00;50000
-HR-554211;Hausratversicherung;12.90;20.11.2022;quarterly;30.00;75000
-KFZ-332198;KFZ-Versicherung;45.20;10.05.2023;monthly;120.00;100000000
-RS-445566;Rechtsschutz;25.90;01.08.2021;yearly;80.00;300000
-RS-110022;Rechtsschutz;21.50;15.03.2020;half-yearly;75.00;500000
-UV-776655;Unfallversicherung;18.75;01.07.2023;monthly;60.00;200000
-WG-443322;Wohngebäudeversicherung;35.00;01.09.2019;quarterly;200.00;450000
-PKV-998811;Private Krankenversicherung;450.00;01.01.2018;monthly;1500.00;0
-BU-221144;Berufsunfähigkeit;65.40;15.06.2022;monthly;500.00;2500
+policy_number;client_id;insurance_type;monthly_premium;start_date;payment_plan;acquisition_cost;insurance_sum
+PH-987234;1001;Privathaftpflicht;5.50;15.01.2023;yearly;50.00;10000000
+HR-123987;1001;Hausratversicherung;10.50;01.02.2023;monthly;25.00;50000
+HR-554211;1002;Hausratversicherung;12.90;20.11.2022;quarterly;30.00;75000
+KFZ-332198;1003;KFZ-Versicherung;45.20;10.05.2023;monthly;120.00;100000000
+RS-445566;1003;Rechtsschutz;25.90;01.08.2021;yearly;80.00;300000
+RS-110022;1004;Rechtsschutz;21.50;15.03.2020;half-yearly;75.00;500000
+UV-776655;1005;Unfallversicherung;18.75;01.07.2023;monthly;60.00;200000
+WG-443322;1006;Wohngebäudeversicherung;35.00;01.09.2019;quarterly;200.00;450000
+PKV-998811;1007;Private Krankenversicherung;450.00;01.01.2018;monthly;1500.00;0
+BU-221144;1008;Berufsunfähigkeit;65.40;15.06.2022;monthly;500.00;2500

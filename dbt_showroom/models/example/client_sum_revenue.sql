@@ -15,7 +15,7 @@ with client_sum_revenue as (
         {{ ref('client') }} AS CL
     INNER JOIN {{ ref('contract') }} AS CO 
     ON
-        TRIM(CL.POLICY_NUMBER) = TRIM(CO.POLICY_NUMBER)
+        CL.CLIENT_ID = CO.CLIENT_ID
     GROUP BY CL.CLIENT_ID
     ORDER BY SUM(CO.MONTHLY_PREMIUM) DESC
 )

@@ -9,9 +9,11 @@ version: '1.0.0'
 profile: 'dbt_showroom'
 seeds:
   dbt_showroom: 
-    +delimiter: "," # default delimiter for seeds in jaffle_shop project will be "|"
+    delimiter: "," # default delimiter for seeds in jaffle_shop project will be "|"
+    claim:
+      delimiter: ";"
     contract:
-      +delimiter: ";" # delimiter for seed_a will be ","
+      delimiter: ";"
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
