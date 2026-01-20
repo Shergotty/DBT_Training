@@ -1,7 +1,7 @@
 policy_number;client_id;insurance_type;monthly_premium;start_date;payment_plan;acquisition_cost;insurance_sum
-PH-987234;1001;Privathaftpflicht;Mai 50;15.01.2023;yearly;50.00;10000000
-HR-123987;1001;Hausratversicherung;Okt 50;01.02.2023;monthly;25.00;50000
-HR-554211;1002;Hausratversicherung;Dez 90;20.11.2022;quarterly;30.00;75000
+PH-987234;1001;Privathaftpflicht;5.50;15.01.2023;yearly;50.00;10000000
+HR-123987;1001;Hausratversicherung;10.50;01.02.2023;monthly;25.00;50000
+HR-554211;1002;Hausratversicherung;12.90;20.11.2022;quarterly;30.00;75000
 KFZ-332198;1003;KFZ-Versicherung;45.20;10.05.2023;monthly;120.00;100000000
 RS-445566;1003;Rechtsschutz;25.90;01.08.2021;yearly;80.00;300000
 RS-110022;1004;Rechtsschutz;21.50;15.03.2020;half-yearly;75.00;500000
