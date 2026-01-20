@@ -1,4 +1,5 @@
 pydantic
 pydantic_settings
-
+dbt
+dbt-postgres
 - e
