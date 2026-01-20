@@ -1,4 +1,4 @@
-{{ config(materialized='table', schema = 'dimensions') }}
+{{ config(materialized='table', schema = 'mart') }}
 
 WITH DIM_INSURANCE_TYPE AS (
 
@@ -6,7 +6,7 @@ WITH DIM_INSURANCE_TYPE AS (
         MD5(TRIM(INSURANCE_TYPE)) AS INSURANCE_TYPE_PK
         , INSURANCE_TYPE
     FROM 
-        {{ ref('contract') }}
+        {{ ref('staging_contract') }}
     GROUP BY INSURANCE_TYPE
 )
 

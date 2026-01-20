@@ -1,4 +1,4 @@
-{{ config(materialized='table', schema = 'dimensions') }}
+{{ config(materialized='table', schema = 'mart') }}
 
 WITH DIM_CLAIM_TYPE AS (
 
@@ -6,11 +6,11 @@ WITH DIM_CLAIM_TYPE AS (
         MD5(TRIM(CLAIM_TYPE)) AS CLAIM_TYPE_PK
         , CLAIM_TYPE
     FROM 
-        {{ ref('claim') }}
+        {{ ref('staging_claim') }}
     GROUP BY CLAIM_TYPE
 )
 
-SELECT 
+SELECT
     *
-FROM    
+FROM
     DIM_CLAIM_TYPE

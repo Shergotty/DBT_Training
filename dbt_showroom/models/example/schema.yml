@@ -15,3 +15,9 @@ models:
         data_test:
           - <= 0
           - not_null
+  - name: staging_claim
+  - name: staging_client
+  - name: staging_contract  
+  - name: dim_payment_plan
+  - name: dim_insurance_type
+  - name: dim_claim_type

@@ -5,15 +5,15 @@
                  the monthly premiums.
 */
 
-{{ config(materialized='table') }}
+{{ config(materialized='view', schema = 'mart') }}
 
 with client_sum_revenue as (
     SELECT 
         CL.CLIENT_ID
         , SUM(CO.MONTHLY_PREMIUM) AS REVENUE_PER_CLIENT 
     FROM 
-        {{ ref('client') }} AS CL
-    INNER JOIN {{ ref('contract') }} AS CO 
+        {{ ref('staging_client') }} AS CL
+    INNER JOIN {{ ref('staging_contract') }} AS CO 
     ON
         CL.CLIENT_ID = CO.CLIENT_ID
     GROUP BY CL.CLIENT_ID
