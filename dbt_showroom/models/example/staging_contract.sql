@@ -3,7 +3,20 @@
 WITH STG_CONTRACT AS (
 
     SELECT 
-        MD5(TRIM(incident_date, claim_amount, claim_type, status)) AS HASH_CONTRACT
+        MD5(
+            CONCAT(
+                TEXT(policy_number)
+                , TEXT(client_id)
+                , TEXT(insurance_type)
+                , TEXT(monthly_premium)
+                , TEXT(start_date)
+                , TEXT(payment_plan)
+                , TEXT(acquisition_cost)
+                , TEXT(insurance_sum)
+                )
+            ) 
+         AS HASH_CONTRACT
+        , policy_number
         , client_id
         , insurance_type
         , monthly_premium
@@ -11,6 +24,19 @@ WITH STG_CONTRACT AS (
         , payment_plan
         , acquisition_cost
         , insurance_sum
+        , MD5(
+            CONCAT(
+                TEXT(client_id)
+                , TEXT(insurance_type)
+                , TEXT(monthly_premium)
+                , TEXT(start_date)
+                , TEXT(payment_plan)
+                , TEXT(acquisition_cost)
+                , TEXT(insurance_sum)
+                )
+            ) 
+        AS HASH_DIFF
+        , CURRENT_TIMESTAMP AS TIMESTAMP_INSERT  
     FROM 
         {{ ref('contract') }}
 )
