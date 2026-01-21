@@ -10,7 +10,7 @@ profile: 'dbt_showroom'
 seeds:
   dbt_showroom: 
     schema: raw
-    delimiter: "," # default delimiter for seeds in jaffle_shop project will be "|"
+    delimiter: "," # default delimiter for seeds in dbt_showroom project will be ","
     claim:
       delimiter: ";"
     contract:
