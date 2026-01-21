@@ -1,0 +1,24 @@
+services :
+    postgres_target:
+        image: postgres:latest
+        ports:
+            - 5432:5432
+        environment:
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            POSTGRES_DB: ${POSTGRES_DB}
+        healthcheck:
+              test:
+                [
+                  "CMD",
+                  "pg_isready",
+                  "-d",
+                  "postgres",
+                  "-h",
+                  "${POSTGRES_DB}", 
+                  "-p 5432",
+                  "-U postgres",
+                ]
+              interval: 5s                             # Time between health check attempts
+              timeout: 5s                              # Time to wait for a response from the health check command
+              retries: 5                               # Number of retries before marking the container as unhealth
