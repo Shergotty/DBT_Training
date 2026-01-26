@@ -6,7 +6,7 @@ WITH DIM_PAYMENT_PLAN AS (
         MD5(TRIM(PAYMENT_PLAN)) AS PAYMENT_TYPE_PK
         , PAYMENT_PLAN
     FROM 
-        {{ ref('staging_contract') }}
+        {{ ref('snapshot_staging_contract') }}
     GROUP BY PAYMENT_PLAN
 )
 

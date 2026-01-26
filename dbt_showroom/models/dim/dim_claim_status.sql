@@ -6,7 +6,7 @@ WITH DIM_CLAIM_STATUS AS (
         MD5(TRIM(STATUS)) AS CLAIM_STATUS_PK
         , STATUS
     FROM 
-        {{ ref('staging_claim') }}
+        {{ ref('snapshot_staging_claim') }}
     GROUP BY STATUS
 )
 
