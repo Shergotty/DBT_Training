@@ -1,24 +1,16 @@
 
-version: 2
+version: 3
 
 models:
-  - name: client_sum_revenue
-    description: "sums up revenue per client"
-    columns:
-      - name: client_id
-        description: "The primary key for this table"
-        data_tests:
-          - unique
-          - not_null
-      - name: revenue_per_client
-        description: "sums up the monthly premium per client id"
-        data_test:
-          - <= 0
-          - not_null
   - name: staging_claim
   - name: staging_client
   - name: staging_contract  
-  - name: dim_payment_plan
-  - name: dim_insurance_type
-  - name: dim_claim_type
-  - name: fact_contract
+
+sources:
+  - name: seed
+    database: target  
+    schema: public_raw  
+    tables:
+      - name: claim
+      - name: client
+      - name: contract

@@ -2,7 +2,7 @@ services :
     postgres_target:
         image: postgres:latest
         ports:
-            - 5432:5432
+            - ${PORT}:${PORT}
         environment:
             POSTGRES_USER: ${POSTGRES_USER}
             POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -16,7 +16,7 @@ services :
                   "postgres",
                   "-h",
                   "${POSTGRES_DB}", 
-                  "-p 5432",
+                  "-p ${PORT}",
                   "-U postgres",
                 ]
               interval: 5s                             # Time between health check attempts
