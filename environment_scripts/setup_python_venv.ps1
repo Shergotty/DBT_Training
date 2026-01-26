@@ -1,7 +1,7 @@
 # redirect stderr into stdout
 $p = & { python -V } 2>&1
-$python_version = [System.Version]"3.13.0"
-$reference_version = [System.Version]"3.13.0"
+$python_version = [System.Version]"3.14.2"
+$reference_version = [System.Version]"3.14.2"
 $version_number = if (!($p -is [System.Management.Automation.ErrorRecord])) {
     [System.Version]($p -replace '\D+(\s+)', '$1')
 }
