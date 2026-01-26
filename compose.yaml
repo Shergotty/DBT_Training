@@ -19,6 +19,6 @@ services :
                   "-p ${PORT}",
                   "-U postgres",
                 ]
-              interval: 5s                             # Time between health check attempts
-              timeout: 5s                              # Time to wait for a response from the health check command
-              retries: 5                               # Number of retries before marking the container as unhealth
+              interval: 5s
+              timeout: 5s
+              retries: 5
