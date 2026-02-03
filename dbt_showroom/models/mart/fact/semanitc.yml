@@ -1,0 +1,27 @@
+semantic_models:
+  - name: count_claim_sum_amount_per_type
+    description: |
+      A model to aggregate all claim amounts per claim type
+    model: ref('fact_claim')
+    defaults:
+      agg_time_dimension: claim_time
+    dimensions:
+      - name: claim_time
+        type: time
+        type_params:
+          time_granularity: day
+    entities: 
+      - name: claim_id
+        type: primary
+      - name: claim_type_pk
+        type: foreign
+    measures: 
+      - name: sum_claim_per_type
+        agg: sum
+
+metrics:
+  - name: total_claim_amount
+    label: Total Claim Amount
+    type: simple
+    type_params:
+      measure: sum_claim_per_type
