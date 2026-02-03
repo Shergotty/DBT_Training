@@ -4,7 +4,7 @@ snapshots:
     schema: schnapshot
     relation: ref('staging_claim')
     config:
-      unique_key: HASH_CLAIM
+      unique_key: HASH_PK
       strategy: check      
       check_cols:
         - HASH_DIFF
@@ -18,7 +18,7 @@ snapshots:
     schema: schnapshot
     relation: ref('staging_client')
     config:
-      unique_key: HASH_CLIENT
+      unique_key: HASH_PK
       strategy: check      
       check_cols:
         - HASH_DIFF
@@ -32,7 +32,7 @@ snapshots:
     schema: schnapshot
     relation: ref('staging_contract')
     config:
-      unique_key: HASH_CONTRACT
+      unique_key: HASH_PK
       strategy: check      
       check_cols:
         - HASH_DIFF
