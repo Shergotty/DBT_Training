@@ -1,40 +1,23 @@
 {{ config(materialized='table', schema = 'staging') }}
+{% set relation = source('seed', get_current_filename()) %}
 
-WITH STG_CLIENT AS (
+WITH STG_TABLE AS (
 
     SELECT 
        MD5(
             {{ 
-                safe_concat(['client_id'])
+                safe_concat([get_first_column(relation)])
                 }}
             ) AS HASH_CLIENT
-        , client_id
-        , first_name
-        , last_name
-        , date_of_birth
-        , email
-        , phone
-        , address
-        , zip_code
-        , city
-        , {{concat_hash([
-            'first_name'
-            , 'last_name'
-            , 'date_of_birth'
-            , 'email'
-            , 'phone'
-            , 'address'
-            , 'zip_code'
-            , 'city'
-                ])
-            }}
+        , *
+        , {{ concat_hash(get_change_attributes(relation)) }}
             AS HASH_DIFF
 
     FROM 
-        {{ source('seed', 'client') }}
+        {{ relation }}
 )
 
 SELECT 
     *
 FROM    
-    STG_CLIENT
+    STG_TABLE

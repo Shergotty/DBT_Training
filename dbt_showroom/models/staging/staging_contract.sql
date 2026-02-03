@@ -1,40 +1,23 @@
 {{ config(materialized='table', schema = 'staging') }}
+{% set relation = source('seed', get_current_filename()) %}
 
-WITH STG_CONTRACT AS (
+WITH STG_TABLE AS (
 
     SELECT 
-        MD5(
+       MD5(
             {{ 
-                safe_concat(['policy_number'])
+                safe_concat([get_first_column(relation)])
                 }}
-            ) 
-         AS HASH_CONTRACT
-        , policy_number
-        , client_id
-        , insurance_type
-        , monthly_premium
-        , start_date
-        , payment_plan
-        , acquisition_cost
-        , insurance_sum
-        , {{concat_hash([
-            'policy_number'
-            , 'client_id'
-            , 'insurance_type'
-            , 'monthly_premium'
-            , 'start_date'
-            , 'payment_plan'
-            , 'acquisition_cost'
-            , 'insurance_sum'
-                ])
-            }}
+            ) AS HASH_CLIENT
+        , *
+        , {{ concat_hash(get_change_attributes(relation)) }}
             AS HASH_DIFF
-            
+
     FROM 
-        {{ source('seed', 'contract') }}
+        {{ relation }}
 )
 
 SELECT 
     *
 FROM    
-    STG_CONTRACT
+    STG_TABLE

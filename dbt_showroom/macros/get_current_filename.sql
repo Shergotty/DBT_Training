@@ -1,3 +1,3 @@
 {% macro get_current_filename() %}
-    {{ return(model.name) }}
+    {{ return(model.name.replace('staging_', '')) }}
 {% endmacro %}

@@ -1,31 +1,23 @@
 {{ config(materialized='table', schema = 'staging') }}
+{% set relation = source('seed', get_current_filename()) %}
 
-WITH STG_CLAIM AS (
+WITH STG_TABLE AS (
 
     SELECT 
-        {{concat_hash(['claim_id'])}} AS HASH_CLAIM
-        , claim_id
-        , policy_number
-        , incident_date
-        , claim_amount
-        , claim_type
-        , status
-        , {{concat_hash([
-            'policy_number'
-            , 'incident_date'
-            , 'claim_amount'
-            , 'claim_type'
-            , 'status'
-                ])
-            }}
+       MD5(
+            {{ 
+                safe_concat([get_first_column(relation)])
+                }}
+            ) AS HASH_CLIENT
+        , *
+        , {{ concat_hash(get_change_attributes(relation)) }}
             AS HASH_DIFF
-            
-       
+
     FROM 
-        {{ source('seed', 'claim') }}
+        {{ relation }}
 )
 
 SELECT 
     *
 FROM    
-    STG_CLAIM
+    STG_TABLE
