@@ -1,5 +1,3 @@
-{{ config(materialized='table', schema = 'mart') }}
-
 WITH DIM_INSURANCE_TYPE AS (
 
     SELECT 

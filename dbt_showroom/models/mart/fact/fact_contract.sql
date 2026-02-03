@@ -1,5 +1,3 @@
-{{ config(materialized='table', schema = 'mart') }}
-
 WITH FACT_CONCTRACT AS (
     SELECT 
            policy_number

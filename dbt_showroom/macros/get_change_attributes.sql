@@ -17,8 +17,7 @@
         FROM 
             column_list
         WHERE 
-            ordinal_position > 2              -- Skips the first two
-            AND ordinal_position < total_columns -- Skips the last one
+            ordinal_position > 1
         ORDER BY 
             ordinal_position
     {% endset %}

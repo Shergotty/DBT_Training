@@ -1,5 +1,3 @@
-{{ config(materialized='table', schema = 'mart') }}
-
 WITH FACT_CLAIM AS (
     SELECT 
         claim_id

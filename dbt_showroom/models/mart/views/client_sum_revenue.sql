@@ -4,9 +4,6 @@
                  It joins client and contract data on policy_number and aggregates
                  the monthly premiums.
 */
-
-{{ config(materialized='view', schema = 'mart') }}
-
 with client_sum_revenue as (
     SELECT 
         FC.CLIENT_ID
