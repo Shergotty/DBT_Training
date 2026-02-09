@@ -15,10 +15,29 @@ services :
                   "-d",
                   "postgres",
                   "-h",
-                  "${POSTGRES_DB}", 
-                  "-p ${PORT}",
-                  "-U postgres",
+                  "localhost",
+                  "-p",
+                  "${PORT}",
+                  "-U",
+                  "postgres",
                 ]
               interval: 5s
               timeout: 5s
               retries: 5
+
+    dbt_python:
+        image: ghcr.io/dbt-labs/dbt-postgres:latest
+        working_dir: /usr/app
+        volumes:
+            - .:/usr/app
+        environment:
+            POSTGRES_HOST: postgres_target
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            POSTGRES_DB: ${POSTGRES_DB}
+            POSTGRES_PORT: ${PORT}
+            DBT_PROFILES_DIR: /usr/app
+        entrypoint: ["tail", "-f", "/dev/null"]
+        depends_on:
+            postgres_target:
+                condition: service_healthy
