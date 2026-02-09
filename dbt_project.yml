@@ -31,16 +31,17 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 
 snapshots:
-  +schema: schnapshot
-  +unique_key: HASH_PK
-  +strategy: check      
-  +check_cols:
-    - HASH_DIFF
-  +dbt_valid_to_current: "DATE('9999-12-31')"
-  +snapshot_meta_column_names:
-    dbt_valid_from: VALID_FROM
-    dbt_valid_to: VALID_TO
-  +hard_deletes: 'invalidate'
+  dbt_showroom:
+    +schema: schnapshot
+    +unique_key: HASH_PK
+    +strategy: check      
+    +check_cols:
+      - HASH_DIFF
+    +dbt_valid_to_current: "DATE('9999-12-31')"
+    +snapshot_meta_column_names:
+      dbt_valid_from: VALID_FROM
+      dbt_valid_to: VALID_TO
+    +hard_deletes: 'invalidate'
 
 
 models:

@@ -7,27 +7,30 @@ services :
             POSTGRES_USER: ${POSTGRES_USER}
             POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
             POSTGRES_DB: ${POSTGRES_DB}
+        volumes:
+            - postgres_data:/var/lib/postgresql
         healthcheck:
               test:
                 [
                   "CMD",
                   "pg_isready",
                   "-d",
-                  "postgres",
+                  "${POSTGRES_DB}",
                   "-h",
                   "localhost",
                   "-p",
                   "${PORT}",
                   "-U",
-                  "postgres",
+                  "${POSTGRES_USER}",
                 ]
               interval: 5s
               timeout: 5s
               retries: 5
 
     dbt_python:
-        image: ghcr.io/dbt-labs/dbt-postgres:latest
-        working_dir: /usr/app
+        build:
+            context: .
+            dockerfile: Dockerfile
         volumes:
             - .:/usr/app
         environment:
@@ -37,7 +40,9 @@ services :
             POSTGRES_DB: ${POSTGRES_DB}
             POSTGRES_PORT: ${PORT}
             DBT_PROFILES_DIR: /usr/app
-        entrypoint: ["tail", "-f", "/dev/null"]
         depends_on:
             postgres_target:
                 condition: service_healthy
+
+volumes:
+    postgres_data:
