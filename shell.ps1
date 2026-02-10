@@ -7,4 +7,4 @@ if (Test-Path .env) {
     }
 }
 
-docker compose exec $env:PYTHON_SERVICE bash
+docker compose exec $env:DOCKER_SERVICE_1 bash

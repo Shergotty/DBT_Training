@@ -9,4 +9,4 @@ else
 fi
 
 
-docker compose exec "$PYTHON_SERVICE" bash
+docker compose exec "$DOCKER_SERVICE_1" bash
