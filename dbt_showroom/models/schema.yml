@@ -3,74 +3,22 @@ version: 3
 
 models:
   - name: staging_claim
-    config:
-      tags: 
-        - "staging"
-        - "bronze"
   - name: staging_client
-    config:
-      tags: 
-        - "staging"
-        - "bronze"
   - name: staging_contract
-    config:
-      tags: 
-        - "staging"
-        - "bronze"
   - name: dim_claim_status
-    config:
-      tags: 
-        - "dimension"
-        - "mart"
-        - "gold"
   - name: dim_claim_type
-    config:
-      tags: 
-        - "dimension"
-        - "mart"
-        - "gold"
   - name: dim_insurance_type
-    config:
-      tags: 
-        - "dimension"
-        - "mart"
-        - "gold"
   - name: dim_payment_plan
-    config:
-      tags: 
-        - "dimension"
-        - "mart"
-        - "gold"
   - name: fact_claim
-    config:
-      tags: 
-        - "fact"
-        - "mart"
-        - "gold"
   - name: fact_contract
-    config:
-      tags: 
-        - "fact"
-        - "mart"
-        - "gold"
   - name: client_count_claim_sum_amount
-    config:
-      tags: 
-        - "flatmart"
-        - "mart"
-        - "gold"
   - name: client_sum_revenue
-    config:
-      tags: 
-        - "flatmart"
-        - "mart"
-        - "gold"
 
 
 sources:
   - name: seed
-    database: target  
-    schema: public_raw  
+    database: "{{ env_var('POSTGRES_DB') }}"
+    schema: public_raw
     tables:
       - name: claim
       - name: client

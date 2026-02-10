@@ -1,43 +1,7 @@
 snapshots:
-  
   - name: snapshot_staging_claim
-    schema: schnapshot
     relation: ref('staging_claim')
-    config:
-      unique_key: HASH_CLAIM
-      strategy: check      
-      check_cols:
-        - HASH_DIFF
-      dbt_valid_to_current: "DATE('9999-12-31')"
-      snapshot_meta_column_names:
-        dbt_valid_from: VALID_FROM
-        dbt_valid_to: VALID_TO
-      hard_deletes: 'invalidate'
-
   - name: snapshot_staging_client
-    schema: schnapshot
     relation: ref('staging_client')
-    config:
-      unique_key: HASH_CLIENT
-      strategy: check      
-      check_cols:
-        - HASH_DIFF
-      dbt_valid_to_current: "DATE('9999-12-31')"
-      snapshot_meta_column_names:
-        dbt_valid_from: VALID_FROM
-        dbt_valid_to: VALID_TO
-      hard_deletes: 'invalidate'
-
   - name: snapshot_staging_contract
-    schema: schnapshot
     relation: ref('staging_contract')
-    config:
-      unique_key: HASH_CONTRACT
-      strategy: check      
-      check_cols:
-        - HASH_DIFF
-      dbt_valid_to_current: "DATE('9999-12-31')"
-      snapshot_meta_column_names:
-        dbt_valid_from: VALID_FROM
-        dbt_valid_to: VALID_TO
-      hard_deletes: 'invalidate'

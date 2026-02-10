@@ -30,11 +30,42 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 
-# Configuring models
-# Full documentation: https://docs.getdbt.com/docs/configuring-models
+snapshots:
+  dbt_showroom:
+    +schema: schnapshot
+    +unique_key: HASH_PK
+    +strategy: check      
+    +check_cols:
+      - HASH_DIFF
+    +dbt_valid_to_current: "DATE('9999-12-31')"
+    +snapshot_meta_column_names:
+      dbt_valid_from: VALID_FROM
+      dbt_valid_to: VALID_TO
+    +hard_deletes: 'invalidate'
 
-# In this example config, we tell dbt to build all models in the example/
-# directory as views. These settings can be overridden in the individual model
-# files using the `{{ config(...) }}` macro.
+
 models:
   dbt_showroom:
+    staging:
+      +materialized: incremental
+      +schema: staging
+      +on_schema_change: append_new_columns
+      +tags: 
+        - "staging"
+        - "bronze"
+    mart:
+      +materialized: table
+      +schema: mart
+      +tags:
+        - "mart"
+        - "gold"
+      dim:
+        +tags:
+          - "dimension"
+      fact:
+        +tags:
+          - "fact"
+      views:
+        +materialized: view
+        +tags:
+          - "flatmart"

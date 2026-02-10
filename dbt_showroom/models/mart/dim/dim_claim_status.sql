@@ -1,5 +1,3 @@
-{{ config(materialized='table', schema = 'mart') }}
-
 WITH DIM_CLAIM_STATUS AS (
 
     SELECT 

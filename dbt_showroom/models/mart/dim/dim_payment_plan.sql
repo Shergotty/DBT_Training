@@ -1,5 +1,3 @@
-{{ config(materialized='table', schema = 'mart') }}
-
 WITH DIM_PAYMENT_PLAN AS (
 
     SELECT 

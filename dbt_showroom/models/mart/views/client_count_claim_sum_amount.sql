@@ -5,8 +5,6 @@
                  the monthly premiums.
 */
 
-{{ config(materialized='view', schema = 'mart') }}
-
 with client_count_claim_sum_amount as (
     SELECT 
     FCT.CLIENT_ID
