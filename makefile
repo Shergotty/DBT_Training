@@ -1,4 +1,4 @@
-all : up down shell document
+all : up down sh ps1 
 .PHONY : all
 
 up:
@@ -9,6 +9,3 @@ sh:
 	./shell.sh
 ps1:
 	./shell.ps1
-document:
-	dbt docs generate
-	dbt docs serve
