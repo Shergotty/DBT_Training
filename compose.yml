@@ -1,5 +1,5 @@
 services :
-    postgres_target:
+    postgres_target_training:
         image: postgres:latest
         ports:
             - ${PORT}:${PORT}
@@ -34,14 +34,14 @@ services :
         volumes:
             - .:/usr/app
         environment:
-            POSTGRES_HOST: postgres_target
+            POSTGRES_HOST: postgres_target_training
             POSTGRES_USER: ${POSTGRES_USER}
             POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
             POSTGRES_DB: ${POSTGRES_DB}
             POSTGRES_PORT: ${PORT}
             DBT_PROFILES_DIR: /usr/app
         depends_on:
-            postgres_target:
+            postgres_target_training:
                 condition: service_healthy
 
 volumes:
