@@ -74,3 +74,15 @@ or
 make sh
 ```
 respectiveley
+
+to setup your docs run
+
+```sh
+dbt docs generate
+```
+
+and
+
+```sh
+dbt docs serve --host 0.0.0.0 --port 8080
+```
