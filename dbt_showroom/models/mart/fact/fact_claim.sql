@@ -11,7 +11,7 @@ WITH FACT_CLAIM AS (
     ON cs.CLAIM_STATUS_PK = md5(trim(stg.status))
     INNER join {{ ref('dim_claim_type') }} as ct
     on ct.CLAIM_TYPE_PK = md5(trim(stg.claim_type))
-    WHERE DATE(stg.VALID_TO) = (SELECT MAX(DATE(VALID_TO)) FROM {{ ref('snapshot_staging_claim') }}) 
+    WHERE DATE(stg.DBT_VALID_TO) = (SELECT MAX(DATE(DBT_VALID_TO)) FROM {{ ref('snapshot_staging_claim') }}) 
 )
 
 SELECT * FROM FACT_CLAIM

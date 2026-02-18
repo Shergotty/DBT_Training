@@ -13,7 +13,7 @@ WITH FACT_CONCTRACT AS (
     ON pp.payment_type_pk = md5(trim(stg.payment_plan))
     INNER join {{ ref('dim_insurance_type') }} as it
     on it.insurance_type_pk = md5(trim(stg.insurance_type))
-    WHERE DATE(stg.VALID_TO) = (SELECT MAX(DATE(VALID_TO)) FROM {{ ref('snapshot_staging_contract') }}) 
+    WHERE DATE(stg.DBT_VALID_TO) = (SELECT MAX(DATE(DBT_VALID_TO)) FROM {{ ref('snapshot_staging_contract') }}) 
 )
 
 SELECT * FROM FACT_CONCTRACT
