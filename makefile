@@ -1,4 +1,4 @@
-all : up down sh ps1 docs
+all : up down sh ps1
 .PHONY : all
 
 up:
@@ -9,7 +9,3 @@ sh:
 	./shell.sh
 ps1:
 	./shell.ps1
-
-docs:
-	dbt docs generate
-	dbt docs serve --port 8080 --host 0.0.0.0
