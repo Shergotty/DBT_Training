@@ -1,0 +1,4 @@
+models:
+  - name: staging_claim
+  - name: staging_client
+  - name: staging_contract

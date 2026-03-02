@@ -1,0 +1,5 @@
+models:
+  - name: dim_claim_status
+  - name: dim_claim_type
+  - name: dim_insurance_type
+  - name: dim_payment_plan
