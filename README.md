@@ -7,7 +7,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```
 
-run scoop in your shell
+install scoop via shell
 
 ```sh
 scoop install make
