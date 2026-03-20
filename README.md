@@ -1,6 +1,6 @@
 # run 
 
-if you are running this reop on windows and you have not installed make and or [scoop](https://scoop.sh/), you can do so by:
+if you are using this repository on windows and you have not installed make and or [scoop](https://scoop.sh/), you can do so by:
 
 ```ps1
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
