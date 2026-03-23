@@ -26,6 +26,28 @@ scoop install make
 
 ---
 
+## Configuration and Credentials
+
+Before starting the container, you must configure your environment variables so Docker and dbt can connect to your database. 
+
+This project uses a `.env` file to securely manage credentials. 
+
+**1. Create your `.env` file**
+Copy the provided `.env_example` file and rename the copy to `.env`.
+
+**2. Fill in the placeholders**
+Open your new `.env` file and replace the `#PLACEHOLDER#` values with your actual database credentials. 
+
+* `PORT` = The port for your database (Use `5432` as the standard for PostgreSQL)
+* `POSTGRES_USER` = Your database username
+* `POSTGRES_PASSWORD` = Your database password
+* `POSTGRES_DB` = The name of your database
+* `DOCKER_SERVICE_1` = The name of your Docker service 
+
+*Note: Never commit your `.env` file to version control. It should be added to your `.gitignore`.*
+
+---
+
 ## Managing the Container
 
 We use `make` commands to simplify interactions with Docker Compose. 
