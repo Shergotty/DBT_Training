@@ -4,12 +4,11 @@ all : up down sh ps1 dev
 up:
 	docker compose up -d
 
-
 down:
 	-docker compose exec dbt_python dbt clean
 	docker compose down -v
 
-# ... (rest of your makefile)
+# Opens an interactive shell in the running container
 sh:
 	./shell.sh
 
