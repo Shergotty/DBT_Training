@@ -1,31 +1,41 @@
-all : up down sh ps1 dev
-.PHONY : all up down sh ps1 dev compile docs
+all : up down sh ps1 dev compile docs serve
+.PHONY : all up down sh ps1 dev compile docs serve
 
+# --- VARIABLES ---
+DC := docker compose
+DBT_EXEC := $(DC) exec dbt_python dbt
+DBT_EXEC_BG := $(DC) exec -d dbt_python dbt
+
+# --- INFRASTRUCTURE ---
 up:
-	docker compose up -d
+	$(DC) up -d
 
 down:
-	-docker compose exec dbt_python dbt clean
-	docker compose down -v
+	-$(DBT_EXEC) clean
+	$(DC) down -v
 
-# Opens an interactive shell in the running container
+# --- SHELLS ---
 sh:
+	@echo "Opening interactive shell..."
 	./shell.sh
 
 ps1:
+	@echo "Opening interactive PowerShell..."
 	./shell.ps1
 
-# --- NEW COMMANDS ---
-
-# Just compiles the dbt project using the running container
+# --- DBT COMMANDS ---
 compile:
-	docker compose exec dbt_python dbt compile
+	@echo "Compiling dbt project..."
+	$(DBT_EXEC) compile
 
-# Runs the whole workflow: compile, generate docs, serve in background, and open shell
-dev: compile
+docs:
 	@echo "Generating dbt docs..."
-	docker compose exec dbt_python dbt docs generate
+	$(DBT_EXEC) docs generate
+
+serve:
 	@echo "Starting dbt docs server in the background on port 8080..."
-	docker compose exec -d dbt_python dbt docs serve --host 0.0.0.0 --port 8080
-	@echo "Opening interactive shell..."
-	./shell.sh
+	$(DBT_EXEC_BG) docs serve --host 0.0.0.0 --port 8080
+
+# --- WORKFLOWS ---
+# Runs the whole workflow: compile, generate docs, serve in background, and open shell
+dev: compile docs serve sh
