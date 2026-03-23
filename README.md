@@ -17,7 +17,7 @@ wsl --install
 If you do not have `make` installed, you can easily install it using the [Scoop](https://scoop.sh/) package manager. Open PowerShell and run:
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-RestMethod -Uri [https://get.scoop.sh](https://get.scoop.sh) | Invoke-Expression
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```
 Once Scoop is installed, install `make`:
 ```powershell
