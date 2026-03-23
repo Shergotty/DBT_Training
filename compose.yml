@@ -49,7 +49,5 @@ services:
     depends_on:
       postgres_target_training:
         condition: service_healthy
-    command: >
-      bash -c "dbt docs generate && dbt docs serve --host 0.0.0.0 --port 8080"
 volumes:
   postgres_data:
