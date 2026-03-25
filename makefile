@@ -51,5 +51,4 @@ serve:
 	$(DBT_EXEC_BG) docs serve --host 0.0.0.0 --port 8080
 
 # --- WORKFLOWS ---
-# Notice we updated 'sh' to 'shell' at the end of this chain!
 dev: compile docs serve shell
