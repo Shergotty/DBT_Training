@@ -22,8 +22,6 @@ ifeq ($(OS),Windows_NT)
 	endif
 endif
 
-# ... (keep your other targets the same) ...
-
 # --- UNIFIED SHELL COMMAND ---
 shell:
 	@echo "Opening interactive shell..."
