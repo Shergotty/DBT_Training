@@ -7,11 +7,12 @@ This repository contains a containerized dbt setup using Docker Compose and Make
 If you are using Windows, you will need to set up WSL (Windows Subsystem for Linux), Docker Desktop, and a utility like `make` to run the workflow commands.
 
 **1. Install WSL and Docker**
-Ensure you have initialized the Windows Subsystem for Linux. Open PowerShell as an Administrator and run:
+Ensure you have initialized the Windows Subsystem for Linux:.
+Open PowerShell as an Administrator and run:
 ```powershell
 wsl --install
 ```
-*(After installing, restart your computer and install Docker Desktop, ensuring the WSL2 backend is enabled in Docker's settings.)*
+**After installing, restart your computer and  download and install [Docker](https://www.docker.com/) Desktop, ensuring the WSL2 backend is enabled in Docker's settings.**
 
 **2. Install Scoop and Make**
 If you do not have `make` installed, you can easily install it using the [Scoop](https://scoop.sh/) package manager. Open PowerShell and run:
