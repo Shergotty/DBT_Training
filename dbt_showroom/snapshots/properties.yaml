@@ -1,7 +1,0 @@
-snapshots:
-  - name: snapshot_staging_claim
-    relation: ref('staging_claim')
-  - name: snapshot_staging_client
-    relation: ref('staging_client')
-  - name: snapshot_staging_contract
-    relation: ref('staging_contract')
