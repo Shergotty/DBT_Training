@@ -31,27 +31,19 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 
 snapshots:
+  dbt_showroom:
+    +schema: snapshot
+    +unique_key: HASH_PK
+    +strategy: check      
+    +check_cols:
+      - HASH_DIFF
+    +dbt_valid_to_current: "DATE('9999-12-31')"
+    +hard_deletes: 'invalidate'
 
 models:
   dbt_showroom:
     +materialized: view
     staging:
       +materialized: table
-      
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
-      # +schema: staging
-      # +unique_key: HASH_PK
+      +schema: staging
+      +unique_key: HASH_PK
