@@ -1,0 +1,9 @@
+version: 2
+sources:
+  - name: seed
+    database: "{{ env_var('POSTGRES_DB') }}"
+    schema: public_raw
+    tables:
+      - name: claim
+      - name: client
+      - name: contract

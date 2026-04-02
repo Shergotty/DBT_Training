@@ -1,7 +1,4 @@
-version: 2
-sources:
-  - name: source_data
-    tables:
-      - name: claim
-      - name: client
-      - name: contracts
+models:
+  - name: claim
+  - name: client
+  - name: contract
