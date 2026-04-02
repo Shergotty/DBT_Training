@@ -34,3 +34,6 @@ snapshots:
 
 models:
   dbt_showroom:
+    +materialized: view
+    staging:
+      +materialized: table
