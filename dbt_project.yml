@@ -37,3 +37,21 @@ models:
     +materialized: view
     staging:
       +materialized: table
+      
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+      # +schema: staging
+      # +unique_key: HASH_PK
