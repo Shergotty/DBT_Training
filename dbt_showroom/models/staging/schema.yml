@@ -1,10 +1,10 @@
 models:
   - name: claim_staging
     config:
-      unique_key: id
+      unique_key: HASH_PK
   - name: client_staging
     config:
-      unique_key: id
+      unique_key: HASH_PK
   - name: contract_staging
     config:
-      unique_key: id
+      unique_key: HASH_PK
