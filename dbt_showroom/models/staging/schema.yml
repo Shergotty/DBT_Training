@@ -1,4 +1,10 @@
 models:
-  - name: claim
-  - name: client
-  - name: contract
+  - name: claim_staging
+    config:
+      unique_key: id
+  - name: client_staging
+    config:
+      unique_key: id
+  - name: contract_staging
+    config:
+      unique_key: id
