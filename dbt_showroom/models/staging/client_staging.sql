@@ -10,4 +10,4 @@ SELECT
     ,zip_code
     ,city 
 FROM 
-    source('seed', 'client')
+   {{source('seed', 'client')}}
