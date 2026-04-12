@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: claim_dim
+    description: "Dimension table for claims (one row per claim)."
+    columns:
+      - name: claim_sk
+        description: "Surrogate key (md5 of claim_id)."
+        tests:
+          - not_null
+          - unique
+      - name: claim_id
+        description: "Natural claim identifier from source."
+        tests:
+          - not_null
+          - unique
+      - name: policy_number
+        description: "Associated policy identifier."
+      - name: claim_type
+        description: "Type/category of the claim."
+      - name: status
+        description: "Lifecycle status of the claim."
+
+  - name: claim_fact
+    description: "Fact table for claim monetary amounts and dates."
+    columns:
+      - name: claim_sk
+        description: "FK to `claim_dim.claim_sk`."
+        tests:
+          - not_null
+      - name: claim_amount
+        description: "Monetary amount for the claim."
+        tests:
+          - not_null
