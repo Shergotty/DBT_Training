@@ -1,0 +1,71 @@
+version: 2
+
+models:
+
+  - name: claim_fact
+    description: "Fact table for claim monetary amounts and dates."
+    columns:
+      - name: claim_id
+        description: "Natural claim identifier from source."
+        tests:
+          - not_null
+      - name: policy_number
+        description: "Associated policy identifier."
+      - name: incident_date
+        description: "Date of the incident."
+      - name: claim_amount
+        description: "Monetary amount for the claim."
+        tests:
+          - not_null
+      - name: claim_type_key
+        description: "FK to `claim_type_dim.claim_type_key`."
+        tests:
+          - not_null
+      - name: claim_status_key
+        description: "FK to `claim_status_dim.claim_status_key`."
+        tests:
+          - not_null
+  
+  - name: payment_fact
+    description: "Fact table for claim payments."
+    columns:
+      - name: payment_id
+        description: "Natural payment identifier from source."
+        tests:
+          - not_null
+      - name: claim_id
+        description: "Associated claim identifier."
+      - name: payment_date
+        description: "Date of the payment."
+      - name: payment_amount
+        description: "Monetary amount for the payment."
+        tests:
+          - not_null
+      - name: insurance_type_key
+        description: "FK to `insurance_type_dim.insurance_type_key`."
+        tests:
+          - not_null
+      - name: payment_plan_key
+        description: "FK to `payment_plan_dim.payment_plan_key`."
+        tests:
+          - not_null
+  
+  - name: client_fact
+    description: "Fact table for client information."
+    columns:
+      - name: client_id
+        description: "Natural client identifier from source."
+        tests:
+          - not_null
+      - name: first_name
+        description: "Client's first name."
+      - name: last_name
+        description: "Client's last name."
+      - name: date_of_birth
+        description: "Client's date of birth."
+      - name: email
+        description: "Client's email address."
+      - name: phone
+        description: "Client's phone number."
+      - name: address_key
+        description: "FK to `address_dim.address_key`."

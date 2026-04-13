@@ -1,34 +1,69 @@
 version: 2
 
 models:
-  - name: claim_dim
-    description: "Dimension table for claims (one row per claim)."
+  - name: claim_type_dim
+    description: "Dimension table for claim types (one row per claim type)."
     columns:
-      - name: claim_sk
-        description: "Surrogate key (md5 of claim_id)."
+      - name: claim_type_key
+        description: "Surrogate key (md5 of claim_type)."
         tests:
           - not_null
           - unique
-      - name: claim_id
-        description: "Natural claim identifier from source."
-        tests:
-          - not_null
-          - unique
-      - name: policy_number
-        description: "Associated policy identifier."
       - name: claim_type
-        description: "Type/category of the claim."
-      - name: status
-        description: "Lifecycle status of the claim."
+        description: "Claim type value."
+        tests:
+          - not_null
 
-  - name: claim_fact
-    description: "Fact table for claim monetary amounts and dates."
+  - name: claim_status_dim
+    description: "Dimension table for claim statuses (one row per status)."
     columns:
-      - name: claim_sk
-        description: "FK to `claim_dim.claim_sk`."
+      - name: claim_status_key
+        description: "Surrogate key (md5 of status)."
         tests:
           - not_null
-      - name: claim_amount
-        description: "Monetary amount for the claim."
+          - unique
+      - name: status
+        description: "Claim status value."
         tests:
           - not_null
+  - name: insurance_type_dim
+    description: "Dimension table for insurance types (one row per insurance type)."
+    columns:
+      - name: insurance_type_key
+        description: "Surrogate key (md5 of insurance_type)."
+        tests:
+          - not_null
+          - unique
+      - name: insurance_type
+        description: "Insurance type value."
+        tests:
+          - not_null
+  - name: payment_plan_dim
+    description: "Dimension table for payment plans (one row per payment plan)."
+    columns:
+      - name: payment_plan_key
+        description: "Surrogate key (md5 of payment_plan)."
+        tests:
+          - not_null
+          - unique
+      - name: payment_plan
+        description: "Payment plan value."
+        tests:
+          - not_null
+  
+  - name: client_dim
+    description: "Dimension table for client information (one row per client)."
+    columns:
+      - name: address_key
+        description: "Surrogate key for client address (md5 of street, street_number, zip_code, city)."
+        tests:
+          - not_null
+          - unique
+      - name: street
+        description: "Street name of the client's address."
+      - name: street_number
+        description: "Street number of the client's address."
+      - name: zip_code  
+        description: "ZIP code of the client's address."
+      - name: city
+        description: "City of the client's address."
