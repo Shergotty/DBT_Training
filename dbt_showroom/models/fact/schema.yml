@@ -3,5 +3,5 @@ version: 2
 models:
 
   - name: claim_fact
-  - name: payment_fact 
+  - name: contract_fact 
   - name: client_fact
