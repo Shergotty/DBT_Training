@@ -51,7 +51,7 @@ models:
         tests:
           - not_null
   
-  - name: client_dim
+  - name: address_dim
     description: "Dimension table for client information (one row per client)."
     columns:
       - name: address_key

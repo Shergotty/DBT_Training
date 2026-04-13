@@ -1,4 +1,4 @@
-client_id,first_name,last_name,date_of_birth,email,phone,street, street_number,zip_code,city
+client_id,first_name,last_name,date_of_birth,email,phone,street_name,street_number,zip_code,city
 1001,Hans,Müller,1985-03-12,hans.mueller@example.de,+49 151 12345678,Hauptstraße, 1,10115,Berlin
 1002,Julia,Schmidt,1992-07-24,j.schmidt@web.de,+49 170 98765432,Goetheweg, 12,80331,München
 1003,Michael,Schneider,1978-11-05,m.schneider@t-online.de,+49 160 11223344,Schillerplatz, 4,20095,Hamburg

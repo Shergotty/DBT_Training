@@ -15,10 +15,10 @@ WITH FACT_CLAIM_CTE AS (
         ON MD5(TRIM(SC.CLAIM_TYPE)) = CT.CLAIM_TYPE_KEY
     INNER JOIN {{ claim_status_dim }} AS CS
         ON MD5(TRIM(SC.STATUS)) = CS.CLAIM_STATUS_KEY
+    WHERE
+        SC.dbt_valid_to = '9999-12-31'
 )
 
 SELECT 
     *
 FROM FACT_CLAIM_CTE
-WHERE
-    DBT_VALID_TO = '9999-12-31'
