@@ -46,9 +46,9 @@ models:
       +materialized: table
       +schema: staging
       +unique_key: HASH_PK
-  dimension:
-    +materialized: table
-    +schema: dimension
-  fact:
-    +materialized: table
-    +schema: fact
+    dimension:
+      +materialized: table
+      +schema: dimension
+    fact:
+      +materialized: table
+      +schema: fact
