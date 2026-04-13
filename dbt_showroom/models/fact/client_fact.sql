@@ -12,7 +12,7 @@ WITH FACT_CLIENT_CTE AS (
         , A.ADDRESS_KEY
     FROM {{ source_table }} AS SC
     INNER JOIN {{ claim_type_dim }} AS A
-        ON MD5(CONCAT_WS('|', TRIM(SC.STREET_NAME::text), TRIM(SC.STREET_NUMBER::text), TRIM(SC.ZIP_CODE::text), TRIM(SC.CITY::text))) = A.ADDRESS_KEY
+        ON MD5({{ safe_concat(['SC.STREET_NAME', 'SC.STREET_NUMBER', 'SC.ZIP_CODE', 'SC.CITY'], separator='|') }}) = A.ADDRESS_KEY
     WHERE
         SC.dbt_valid_to = '9999-12-31'
     

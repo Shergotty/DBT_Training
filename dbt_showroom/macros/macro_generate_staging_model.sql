@@ -15,7 +15,7 @@
     WITH staging_table_cte AS (
         SELECT
             MD5({{ first_attr_name }}::text) AS HASH_PK,
-            MD5({{ safe_concat(diff_attrs) }}) AS HASH_DIFF,
+            MD5({{ safe_concat(diff_attrs, separator='|') }}) AS HASH_DIFF,
             
             {# 4. Prevent trailing comma syntax errors during the Parse Phase #}
             {% if execute %}

@@ -1,7 +1,7 @@
-{% macro safe_concat(attribute_list) %}
+{% macro safe_concat(attribute_list, separator='-') %}
     
     {%- if attribute_list | length > 0 -%}
-        CONCAT_WS('-', 
+        CONCAT_WS('{{ separator }}', 
             {%- for attr in attribute_list -%}
                 TRIM({{ attr }}::text){%- if not loop.last -%}, {% endif -%}
             {%- endfor -%}
