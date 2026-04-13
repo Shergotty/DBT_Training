@@ -52,3 +52,5 @@ models:
     fact:
       +materialized: table
       +schema: fact
+    analytics:
+      +schema: analytics

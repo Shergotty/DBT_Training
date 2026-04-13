@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: claim_flatmart
+    description: "A flat mart model that combines claims data with relevant dimensions for easier analysis."
+    columns:
+      - name: claim_id
+        description: "Unique identifier for each claim."
+      - name: claim_amount
+        description: "The amount claimed."
+      - name: claim_date
+        description: "The date when the claim was made."
+      - name: zip_code
+        description: "The zip code associated with the claim, used for geographic analysis."
+      - name: total_claims_in_zip_area
+        description: "Total amount of claims in the same zip code area, calculated using a window function."
+      - name: has_claim_flag
+        description: "Flag indicating whether there is a claim (1) or not (0) for the record."
