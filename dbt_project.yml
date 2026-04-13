@@ -32,7 +32,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 snapshots:
   dbt_showroom:
-    +schema: snapshot
     +unique_key: HASH_PK
     +strategy: check      
     +check_cols:
@@ -47,3 +46,9 @@ models:
       +materialized: table
       +schema: staging
       +unique_key: HASH_PK
+  dimension:
+    +materialized: table
+    +schema: dimension
+  fact:
+    +materialized: table
+    +schema: fact
