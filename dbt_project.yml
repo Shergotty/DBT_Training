@@ -44,6 +44,10 @@ models:
   dbt_showroom:
     +materialized: view
     staging:
-      +materialized: table
+      +materialized: incremental
       +schema: staging
       +unique_key: HASH_PK
+      +incremental_strategy: merge
+      +merge_update_columns: ['HASH_DIFF']
+      +merge_insert_columns: ['*']
+      +on_schema_change: 'append_new_columns'
