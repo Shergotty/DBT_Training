@@ -1,6 +1,6 @@
-claim_id;policy_number;incident_date;claim_amount;claim_type;status;TEST;TEST_2
-CL-001;PH-987234;2023-03-10;450.00;Haftpflichtschaden;abgeschlossen;1;2
-CL-002;HR-123987;2023-04-15;2500.00;Einbruchdiebstahl;abgeschlossen;1;3
-CL-003;KFZ-332198;2023-08-20;3500.00;Auffahrunfall;in Bearbeitung;2;4
-CL-004;WG-443322;2023-02-10;12000.00;Sturmschaden;abgeschlossen;3;5
-CL-005;PKV-998811;2023-03-20;3500.00;Zahnbehandlung;abgeschlossen;4;8
+claim_id;policy_number;incident_date;claim_amount;claim_type;status
+CL-001;PH-987234;2023-03-10;450.00;Haftpflichtschaden;abgeschlossen
+CL-002;HR-123987;2023-04-15;2500.00;Einbruchdiebstahl;abgeschlossen
+CL-003;KFZ-332198;2023-08-20;3500.00;Auffahrunfall;in Bearbeitung
+CL-004;WG-443322;2023-02-10;12000.00;Sturmschaden;abgeschlossen
+CL-005;PKV-998811;2023-03-20;3500.00;Zahnbehandlung;abgeschlossen
